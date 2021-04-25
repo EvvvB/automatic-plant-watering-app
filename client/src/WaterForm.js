@@ -19,7 +19,7 @@ function WaterForm({ addWaterLog }) {
     addWaterLog([waterTime]);
 
     axios
-      .post("http://localhost:5000/water", {
+      .post("/water", {
         time: water,
       })
       .then(function (response) {
