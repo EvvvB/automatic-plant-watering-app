@@ -5,6 +5,7 @@ const cors = require('cors')
 const app = express()
 //path for serving REACT from node requests
 const path = require('path')
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.use(cors())
 // Choose the port and start the server
