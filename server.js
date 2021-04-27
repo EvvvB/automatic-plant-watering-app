@@ -12,8 +12,8 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 const dbAddress = process.env.DB || 'mongodb://localhost:27017/wateringApp'
 
-//const tempadd = 'mongodb+srv://evvv:j15akbg93@wateringdata.b3di5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(dbAddress, {useNewUrlParser: true, useUnifiedTopology: true});
+const tempadd = 'mongodb+srv://evvv:j15akbg93@wateringdata.b3di5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(tempadd, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // creating to schema object for moisture (mongoose)
 const moistureSchema = new Schema ({
