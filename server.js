@@ -12,7 +12,8 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 const dbAddress = process.env.DB || 'mongodb://localhost:27017/wateringApp'
 
-mongoose.connect(dbAddress, {useNewUrlParser: true, useUnifiedTopology: true});
+const tempadd = 'mongodb+srv://evvv:j15akbg93@wateringdata.b3di5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(tempadd, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // creating to schema object for moisture (mongoose)
 const moistureSchema = new Schema ({
@@ -67,7 +68,7 @@ app.post("/api/moisture", (req, res)=> {
   moistureInstance.save((err,doc)=>{
     if(err) return console.error(err);
 
-    
+    console.log("req sent")
   })
   res.json(req.body)
   // waterInstance.save(function (err, doc) {
@@ -76,6 +77,17 @@ app.post("/api/moisture", (req, res)=> {
   //   console.log("Document inserted succussfully!");
   // });
 })
+
+
+// let moistureInstance = new Moisture({
+//   percentage: 100
+// })
+// console.log("test")
+// moistureInstance.save((err,doc)=>{
+//   if(err) return console.error(err);
+
+  
+// })
 
 
 
