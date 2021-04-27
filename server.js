@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose')
 const {Schema} = mongoose
 const dbAddress = process.env.DB || 'mongodb://localhost:27017/wateringApp'
+
 mongoose.connect(dbAddress, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // creating to schema object for moisture (mongoose)
@@ -58,17 +59,17 @@ app.post("/water", (req, res) => {
 
 app.post("/api/moisture", (req, res)=> {
   let percentage = req.body.percentage;
-  let date = req.body.date;
+  //let date = req.body.date;
   let moistureInstance = new Moisture({
-    percentage: percentage,
-    date: date
+    percentage: percentage
   })
   console.log("test")
   moistureInstance.save((err,doc)=>{
     if(err) return console.error(err);
 
-    res.json(req.body)
+    
   })
+  res.json(req.body)
   // waterInstance.save(function (err, doc) {
   //   if (err) return console.error(err);
   //   res.send("test");
