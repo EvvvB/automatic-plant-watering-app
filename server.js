@@ -8,8 +8,17 @@ const axios = require("axios");
 
 const bodyParser = require("body-parser");
 
+const mongoose = require('mongoose')
+const {Schema} = mongoose
+const dbAddress = process.env.DB || 'mongodb://localhost:27017/wateringApp'
+mongoose.connect(dbAddress, {useNewUrlParser: true, useUnifiedTopology: true});
 
-
+// creating to schema object for moisture (mongoose)
+const moistureSchema = new Schema ({
+  percentage: Number,
+  date: {type: Date, default: Date.now}
+})
+const Moisture = mongoose.model('Moisture', moistureSchema);
 
 
 
@@ -31,11 +40,6 @@ app.get("/test",(req, res)=>{
 
 app.post("/water", (req, res) => {
     let time = req.body.time;
-    // console.log(time);
-  
-    // let waterInstance = new waterData({
-    //   seconds: time,
-    // });
   
     axios
       .post("https://mattbobbleton.ngrok.io/waterpump", {
@@ -49,13 +53,28 @@ app.post("/water", (req, res) => {
         console.error(error);
       });
   
-    // waterInstance.save(function (err, doc) {
-    //   if (err) return console.error(err);
-    //   res.send("test");
-    //   console.log("Document inserted succussfully!");
-    // });
+    
   });
 
+app.post("/api/moisture", (req, res)=> {
+  let percentage = req.body.percentage;
+  let date = req.body.date;
+  let moistureInstance = new Moisture({
+    percentage: percentage,
+    date: date
+  })
+  console.log("test")
+  moistureInstance.save((err,doc)=>{
+    if(err) return console.error(err);
+
+    res.json(req.body)
+  })
+  // waterInstance.save(function (err, doc) {
+  //   if (err) return console.error(err);
+  //   res.send("test");
+  //   console.log("Document inserted succussfully!");
+  // });
+})
 
 
 
