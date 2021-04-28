@@ -1,8 +1,9 @@
 import WaterForm from './WaterForm'
-import WaterChart from './WaterChart'
+import WaterTable from './WaterTable'
+import MoistureChart from './MoistureChart'
 import { useState } from 'react';
 import Container from "react-bootstrap/Container";
-
+import Header from './Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -18,10 +19,13 @@ function App() {
   
     return (
       <div>
+        
         <Container>
+        <Header/>
         <WaterForm addWaterLog={addWaterLog}/>
-        <p>Past 10 watering times:</p>
-        <WaterChart water={waterLogs}/>
+        <MoistureChart/>
+        <h5><u>Past 12 watering times:</u></h5>
+        <WaterTable water={waterLogs}/>
         </Container>
       </div>
     );
