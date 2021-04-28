@@ -42,6 +42,9 @@ moistureLevels.forEach((obj, index)=>{
     moistureDate[index] = dateFormat(moistureDate[index])
 })
 
+moisturePercentage = moisturePercentage.reverse()
+moistureDate = moistureDate.reverse()
+
 //console.log(moisturePercentage)
 const options = {
     chart: {
