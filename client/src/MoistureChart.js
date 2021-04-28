@@ -67,12 +67,12 @@ const options = {
             }
         },
         accessibility: {
-            rangeDescription: 'Range: 1940 to 2017.'
+            rangeDescription: 'Last 24 hours'
         }
     },
     yAxis: {
         title: {
-            text: 'Nuclear weapon states'
+            text: 'Moisture Level'
         },
         labels: {
             formatter: function () {
@@ -81,23 +81,9 @@ const options = {
         }
     },
     tooltip: {
-        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+        pointFormat: '{series.name}  <b>{point.y:,.0f}</b><br/>'
     },
-    // plotOptions: {
-    //     area: {
-    //         pointStart: 1940,
-    //         marker: {
-    //             enabled: false,
-    //             symbol: 'circle',
-    //             radius: 2,
-    //             states: {
-    //                 hover: {
-    //                     enabled: true
-    //                 }
-    //             }
-    //         }
-    //     }
-    // },
+
     series: [{
         name: 'Moisture Level',
         data: moisturePercentage
