@@ -41,10 +41,10 @@ function WaterForm({ addWaterLog }) {
   }
 
   function refreshPage() {
-    sleep(1000)
+    sleep(3000)
     window.location.reload(false);
   }
-
+  
   let textVerify = !(waterTime >= 1 && waterTime <= 10);
   let confirmVerify = !confirmWater;
   let fullVerify = textVerify || confirmVerify;
