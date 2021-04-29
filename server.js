@@ -65,7 +65,7 @@ app.get("/api/moisture", (req, res) => {
     } else {
       res.send(result);
     }
-  }).sort({_id:-1}).limit(20);
+  }).sort({_id:-1}).limit(48);
 });
 
 
