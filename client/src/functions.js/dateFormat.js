@@ -2,7 +2,7 @@
 const testDate = (date) => {
     let dateStr = new Date(date);
     let d = dateStr.getDate();
-    let m = dateStr.getMonth();
+    let m = dateStr.getMonth() + 1;
     let y = String(dateStr.getFullYear()).slice(-2)
     let min = dateStr.getMinutes();
     min = min < 10 ? "0" + min : min;

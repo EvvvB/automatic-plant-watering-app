@@ -34,12 +34,21 @@ let moisturePercentage = []
 let moistureDate = []
 
 moistureLevels.forEach((obj, index)=>{
-    moisturePercentage[index] = obj.percentage
-    moisturePercentage[index] = typeof(moisturePercentage[index]) == "undefined" ? 0 : obj.percentage
-    
-    moistureDate[index] = obj.date
-    moistureDate[index] = typeof(moistureDate[index]) == "undefined" ? '0' : obj.date
-    moistureDate[index] = dateFormat(moistureDate[index])
+    let percentage = obj.percentage
+    percentage = typeof(percentage) == "undefined" ? 0 : obj.percentage
+
+    let moisture = obj.date
+    moisture = typeof(moisture) == "undefined" ? '0' : obj.date
+    moisture = dateFormat(moisture)
+
+    let findminutes = moisture.indexOf(':') + 1
+    findminutes = moisture.substr(findminutes, 2)
+
+    if( findminutes === "00"){
+        moisturePercentage.push(percentage)
+        moistureDate.push(moisture)
+    }
+
 })
 
 moisturePercentage = moisturePercentage.reverse()
