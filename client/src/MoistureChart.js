@@ -7,8 +7,6 @@ const axios = require("axios");
 
 
 
-
-
 function MoistureChart(props) {
 
     const [moistureLevels, setMoistureLevels] = useState([]);
@@ -28,11 +26,11 @@ const getMoistureLevels = () => {
   useEffect(() => {
     getMoistureLevels();
   }, []);
-//console.log(moistureLevels)
 
 let moisturePercentage = []
 let moistureDate = []
 
+//quick inefficient fix for displaying hourly moistures
 moistureLevels.forEach((obj, index)=>{
     let percentage = obj.percentage
     percentage = typeof(percentage) == "undefined" ? 0 : obj.percentage
