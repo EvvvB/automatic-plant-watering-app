@@ -73,7 +73,7 @@ app.get("/api/moisture", (req, res) => {
 app.post("/api/watertime", (req, res) => {
   let seconds = req.body.seconds;
   axios
-    .post("https://mattbobbleton.ngrok.io/waterpump", {
+    .post("<ngrok-exposed-pi-server>", {
       time: seconds,
     })
     .then((res) => {
