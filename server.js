@@ -13,7 +13,6 @@ const { Schema } = mongoose;
 const dbAddress = process.env.DB || "mongodb://localhost:27017/wateringApp";
 //const { Parser } = require('json')
 
-//const tempadd = 'mongodb+srv://evvv:j15akbg93@wateringdata.b3di5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(dbAddress, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
